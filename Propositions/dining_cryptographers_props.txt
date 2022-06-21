@@ -1,0 +1,25 @@
+# The following description is taken from Wikipedia:
+# Three cryptographers gather around a table for dinner. The waiter informs them that the meal has been paid for by someone, who could be one of the cryptographers or the National Security Agency (NSA). The cryptographers respect each other's right to make an anonymous payment, but want to find out whether the NSA paid. So they decide to execute a two-stage protocol. In the first stage, every two cryptographers establish a shared one-bit secret, say by tossing a coin behind a menu so that only two cryptographers see the outcome in turn for each two cryptographers. Suppose, for example, that after the coin tossing, cryptographer A and B share a secret bit 1, A and C share 0, and B and C share 1. 
+
+# Before any announcements have taken place, do any of the cryptographers know whether any of the cryptographers have paid for the dinner?
+K{A}(p | q | r) | K{A}(~(p | q | r))
+K{B}(p | q | r) | K{B}(~(p | q | r))
+K{C}(p | q | r) | K{C}(~(p | q | r))
+
+# In the second stage, each cryptographer publicly announces a bit, which is: if they didn't pay for the meal, the exclusive OR (XOR) of the two shared bits they hold with their two neighbours. If they did pay for the meal, the opposite of that XOR.
+
+# After all announcements, do any of the cryptographers know the identity of the one who has paid for the dinner (in case it was paid by a cryptographer)?
+?(q^s^t)!?(r^t^u)!?(p^s^u)!(K{A}q)
+?(q^s^t)!?(r^t^u)!?(p^s^u)!(K{A}r)
+?(q^s^t)!?(r^t^u)!?(p^s^u)!(K{B}p)
+?(q^s^t)!?(r^t^u)!?(p^s^u)!(K{B}r)
+?(q^s^t)!?(r^t^u)!?(p^s^u)!(K{C}p)
+?(q^s^t)!?(r^t^u)!?(p^s^u)!(K{C}q)
+
+# After all announcements have taken place, is it common knowledge that the NSA has paid?
+?(q^s^t)!?(r^t^u)!?(p^s^u)!C(~(p | q | r))
+
+#After all announcements have taken place, is it common knowledge that one of the cryptographers has paid??
+?(q^s^t)!?(r^t^u)!?(p^s^u)!C(p | q | r)
+
+

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<<<<<<< HEAD
+  <title>Network</title>
+=======
+  <title>ALPACA GRAPH</title>
+>>>>>>> 2016a1398568226ccff4b55061e04f86453c0e7a
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <style type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+    #mynetwork {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+<div id="mynetwork"></div>
+<script type="text/javascript">
+  // create an array with nodes
+  // var json = require('muddychildren.json'); //(with path)
+  $(document).ready(function(){
+        $.getJSON("muddychildren.json", function(data){
+            console.log(data.nodes); // Prints: Harry
+            console.log(data.edges); // Prints: 14
+        }).fail(function(){
+            console.log("An error has occurred.");
+        });
+    });
+  var nodes = new vis.DataSet([
+    {id: 1, label: ' ', shape: 'circle', size: 10, color:'#7BE141', size: 20},
+    {id: 2, label: 'p', shape: 'circle', size: 10, color:'#7BE141', size: 20},
+    {id: 3, label: 'q', shape: 'circle', size: 10, color:'#7BE141', size: 20},
+    {id: 4, label: 'r', shape: 'circle', size: 10, color:'#7BE141', size: 20},
+    {id: 5, label: 'p q', shape: 'circle', size: 10, color:'#7BE141', size: 20},
+	{id: 6, label: 'q r', shape: 'circle', size: 10, color:'#7BE141', size: 20},
+	{id: 7, label: 'p r', shape: 'circle', size: 10, color:'#7BE141', size: 20},
+	{id: 8, label: 'p q r', shape: 'circle', size: 10, color:'#7BE141', size: 20},
+  ]);
+
+  // create an array with edges
+  var edges = new vis.DataSet([
+    {from: 1, to: 2, value:10,color:{color:'red'}},
+    {from: 1, to: 3, value:10,color:{color:'blue'}},
+    {from: 1, to: 4, value:10,color:{color:'green'}},
+    {from: 2, to: 7, value:10,color:{color:'green'}},
+    {from: 2, to: 5, value:10,color:{color:'blue'}},
+	{from: 3, to: 5, value:10,color:{color:'red'}},
+	{from: 3, to: 6, value:10,color:{color:'green'}},
+	{from: 4, to: 6, value:10,color:{color:'blue'}},
+	{from: 4, to: 7, value:10,color:{color:'red'}},
+	{from: 5, to: 8, value:10,color:{color:'green'}},
+	{from: 6, to: 8, value:10,color:{color:'red'}},
+	{from: 7, to: 8, value:10,color:{color:'blue'}},
+  ]);
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = {
+	edges: { smooth: true, shadow: false},
+         layout:{
+			randomSeed: 1,
+       		improvedLayout: true,
+             hierarchical: {
+                 enabled:true,
+                 parentCentralization: true,
+				          nodeSpacing: 150,
+                 direction: 'UD',
+                 sortMethod: 'directed'
+                }
+         }
+ }
+  var network = new vis.Network(container, data, options);
+</script>
+</body>
+</html>

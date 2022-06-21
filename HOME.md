@@ -1,0 +1,23 @@
+# Introduction
+In this project, we implemented an epistemic riddle solver. This program solves a subset of all possible epistemic riddles. We chose to focus on riddles that make use of the operators found in Public Announcement Logic that and which can be expressed using Kripke models. In general, such Kripke models model all possible worlds, valuations and relations according to each individual agent. The number of possible states is reduced after the agents receive more information, e.g. through public announcements.  
+
+Where the human observer of such a riddle would most likely not immediately understand the reasoning behind the solution to such a riddle our solver is able to analyze a proposition that contains none, some or all of the sequentially added information given to the agents throughout the riddle. When all the possible information of a riddle is represented in a proposition, the solver is able to analyze it and deem it as either a valid or invalid proposition. But more detail on this will follow in the methods section.
+
+## Example Riddles
+### Muddy Children
+A father takes his three perfectly logically thinking children to the park. The children go and play until it is time to go and the father calls them back to him. He sees that two of the children have mud on their foreheads. The father then says, "At least one of you has mud on your forehead", followed by, "If you know you have mud on your forehead step forward". No child steps forward. The father then repeats his question, "If you know you have mud on your forehead step forward". This time the two children with mud on their forehead step forward. This works for any number of muddy children, then only the amount of announcement before the children know if they have mud on their forehead differs.
+
+### Drinking Logicians
+Three logicians walk into a bar to have a drink. The bartender asks the logicians, "Do all of you want a drink?". The first logician replies with, "I don't know". The second logician replies with, "I don't know". Then the third logician replies to the bartender, "Yes!".
+
+### Cheryl's Birthday
+Albert and Bernard both want to know Cheryl's birthday. Cheryl's does not want to make it too easy for them and gives them a list of options that could be her birthday, the list of possibilities is as follows: May 15, May 16, May 19, June 17, June 18, July 14, July 16, Aug 14, Aug 15, Aug 17. She then whispers in Albert's ear the month of her birthday and in Bernard's ear the date. Albert then announces, "I do not know Cheryl's birthday but I know that Bernard does not know either". Bernard now announces, "At first I did not know Cheryl's birthday but now I know!". To which Albert replies, "Then I know her birthday as well!". And they both state at the same time that Cheryl's birthday is July 16. 
+
+### Consecutive Numbers
+Anne and Bill are each going to be told a natural number. Their numbers will be one apart. The numbers are now being whispered in their respective ears. They are aware of this scenario. Suppose Anne is told 2 and Bill is told 3. The following truthful conversation between Anne and Bill now takes place: Anne: "I do not know your number." Bill: "I do not know your number." Anne: "I know your number." Bill: "I know your number." 
+
+### Hangman
+At a trial a prisoner is sentenced to death. The verdict reads "You will be executed next week, but the day on which you will be executed is a surprise to you." The prisoner reasons as follows. "I cannot be executed on Friday, because in that case I would not be surprised. But given that Friday is eliminated, then I cannot be executed on Thursday either, because that would then no longer be a surprise. And so on. Therefore the verdict cannot be executed." And so, his execution, that happened to be on Wednesday, came as a surprise.  
+
+### Dining Cryptographers
+Three cryptographers are getting dinner. After dinner the waiter informs them that the meal has already been paid for by someone, either one of the cryptographers, or their employer, the National Security Agency (NSA). The cryptographers respect each other's anonymity, but want to find out whether the NSA has paid for dinner. They set up a two stage protocol, in the first stage each pair of cryptographers shares a random one-bit secret. In the second stage each cryptographer publicly shares a bit that is the result of the XOR function of the two secret bits if that cryptographer has paid, otherwise it would be the negation of that XOR function. Finally the XOR function is taken over all announced bits, if it’s 0 it implies that the NSA has paid. otherwise one of the cryptographers has paid, but it is unknown which one.
