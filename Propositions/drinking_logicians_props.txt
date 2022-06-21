@@ -1,5 +1,0 @@
-# After the barman has asked whether everybody wants a drink, and after agent A announces he does not know whether everybody wants a drink, is it common knowledge that agent A wants a drink?
-[~(K{A}(p & q & r) | K{A}~(p & q & r))]Cp
-
-# After the barman has asked whether everybody wants a drink, and after agent A and agent B announce that they do not know whether everybody wants a drink, does agent C know whether everybody wants a drink?
-[~(K{A}(p & q & r) | K{A}~(p & q & r)) & ~(K{B}(p & q & r) | K{B}~(p & q & r))]K{C}(p & q & r)
