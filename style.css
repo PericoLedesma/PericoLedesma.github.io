@@ -55,8 +55,8 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 14em;
-  background: black;
+  width: 13em;
+  background: rgb(26, 24, 24);;
 }
 
 .logo {
@@ -149,4 +149,9 @@
 }
 
 
-
+.center2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
