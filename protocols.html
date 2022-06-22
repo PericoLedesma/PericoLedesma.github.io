@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+	<title>Protocols</title>
+</head>
+
+<body style="background-image: url('images/image.jpg');">
+
+	<h1 id="ex" >Protocols</h1>
+
+	<!-- partial:index.partial.html -->
+	<header class="header" role="banner">
+			<div>
+			<img src="images/image2.png" width="90" height="121" class="center2">
+		</div>
+
+	  <h1 class="logo">
+		<a href="#">The hundred Prisoners and a Light Bulb Riddle.</a>
+	  </h1>
+	  <div>
+		<nav class="main-nav" role="navigation">
+		  <ul class="unstyled list-hover-slide">
+			<li><a href="index.html">Introduction</a></li>
+			<li><a href="riddle.html">Riddle</a></li>
+			<li><a href="protocols.html">Protocols</a></li>
+			<li><a href="simulation.html">Simulation</a></li>
+			<li><a href="conclusion.html">Conclusion</a></li>
+			<li><a href="https://github.com/PericoLedesma/PericoLedesma.github.io">Github</a></li>
+		  </ul>
+		</nav>
+	  </div>
+	</header>
+
+	<div class="medio">
+		<p>
+Method
+To solve our riddle, we will first explain the riddle for one light bulb, then increase the number of light bulbs to two or more light bulbs if possible, and then see how the problem works if we increase the number of light bulbs higher than the number of prisoners.
+We can see in the literature review that the 100 prisoners and one light bulb riddle is solved by choosing one person named the counter, after which every person who enters the interrogation room can turn on the light bulb just once. If the light is already switched on, they do nothing. Only when the light is switched off, and the prisoner did not yet turn the light on, turn it on. If the only person who turns off the light is the counter, he can add one to the count every time he turns it off. Furthermore, in the literature review, we can see that the solution for the problem from two prisoners on wards stays the same. Therefore, we will use an arbitrary number of prisoners in our explanation/examples to solve the riddle that is lower than 100 but higher than two, so that explainability is guaranteed.
+One light bulb
+Before we can explain the first solution to the one light bulb problem we need to model what the knowledge, and relations are of the prisoners. Such that we can see what every prisoner thinks are the possible states. Furthermore, this helps us see if we some prisoner can already deduce if everybody has been interrogated without using any protocol. We use the Kripke semantics. First we must state the assumptions we are making in the riddle. These are:
+• All prisoners wish to escape
+• All prisoners are aware of the strategy set out in protocol 1 • All prisoners are aware of their role (as counter or not)
+• 1 prisoner enters the room each day
+• The lightbulb’s initial state is either on or off
+• The initial state of the light bulb is known to the counter
+2
+These assumptions can be expressed as common knowledge. It is not necessary that the identity of the counter is common knowledge, simply that each prisoner knows their own role. It is also not necessary that one prisoner enters each day, the protocol also hold when some days no prisoner enters the room. This assumption is only important as we use it when making examples. The counter does need to know the initial state of the light bulb for this protocol to work. If the initial state is unknown to the counter the protocol fails. If the counter knows the initial state the protocol can work for either the initial state containing a lightbulb that is on or off.
+Maybe we need to delete the protocol part of this and just explain why prisoners can not deduce by themselves the problem without the protocol? I think that helps us see why we need a protocol and it can be explained with some logic.
+Kripke model showing the knowledge of the possible states protocol 1:
+In this Kripke model we show what states can be possible after the number of days increase. We only model here if it is already possible to have had everybody in the interrogation room. If we take 3 prisoners: Alex, Bennie and Charlie. Alex is assigned as the counter.In this example we assume that the initial state of the light bulb is off. We can take the example sequence B, A, B, C, A, C, A. Here is the progression of the Kripke model:     </p>
+	</div>
+</body>
+</html>
