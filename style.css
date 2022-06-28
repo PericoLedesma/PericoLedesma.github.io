@@ -1,8 +1,9 @@
 .medio {
-            text-align: center;
+            text-align: justify;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+
 
           width: 60vw;
           padding-top: 10px;
@@ -10,13 +11,15 @@
           padding-bottom: 10px;
           padding-left: 10px;
 
-          margin: 10px auto;
+          margin: 15px auto;
+          margin-left: ;
+           margin-right: ;
         margin-top: 0px;
         position: relative;
         left: 100px;
-        background: #fbfbfb;
-        border-radius: 3px;
-        border: 1px solid #cbcbcb;
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+        border: 2px solid #cbcbcb;
 
           box-shadow:
           0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -25,6 +28,9 @@
           0 22.3px 17.9px rgba(0, 0, 0, 0.072),
           0 41.8px 33.4px rgba(0, 0, 0, 0.086),
           0 100px 80px rgba(0, 0, 0, 0.12);
+}
+#lista{
+text-align: center;
 }
 
 #ex {
@@ -39,8 +45,8 @@
             position: relative;
             left: 100px;
             background: #fbfbfb;
-            border-radius: 3px;
-            border: 1px solid #cbcbcb;
+            border-radius: 10px;
+            border: 2px solid #cbcbcb;
 
           box-shadow:
           0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -148,11 +154,18 @@
 }
 
 
-
+h3{
+text-align: center;
+}
 
 .center2 {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: smaller;
 }

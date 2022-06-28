@@ -26,6 +26,7 @@
 			<li><a href="protocols.html">Protocols</a></li>
 			<li><a href="simulation.html">Simulation</a></li>
 			<li><a href="conclusion.html">Conclusion</a></li>
+			<li><a href="LAMAS_Project_proposal-5.pdf">The paper</a></li>
 			<li><a href="https://github.com/PericoLedesma/PericoLedesma.github.io">Github</a></li>
 		  </ul>
 		</nav>
@@ -34,21 +35,158 @@
 
 	<div class="medio">
 		<p>
-Method
-To solve our riddle, we will first explain the riddle for one light bulb, then increase the number of light bulbs to two or more light bulbs if possible, and then see how the problem works if we increase the number of light bulbs higher than the number of prisoners.
-We can see in the literature review that the 100 prisoners and one light bulb riddle is solved by choosing one person named the counter, after which every person who enters the interrogation room can turn on the light bulb just once. If the light is already switched on, they do nothing. Only when the light is switched off, and the prisoner did not yet turn the light on, turn it on. If the only person who turns off the light is the counter, he can add one to the count every time he turns it off. Furthermore, in the literature review, we can see that the solution for the problem from two prisoners on wards stays the same. Therefore, we will use an arbitrary number of prisoners in our explanation/examples to solve the riddle that is lower than 100 but higher than two, so that explainability is guaranteed.
-One light bulb
-Before we can explain the first solution to the one light bulb problem we need to model what the knowledge, and relations are of the prisoners. Such that we can see what every prisoner thinks are the possible states. Furthermore, this helps us see if we some prisoner can already deduce if everybody has been interrogated without using any protocol. We use the Kripke semantics. First we must state the assumptions we are making in the riddle. These are:
-• All prisoners wish to escape
-• All prisoners are aware of the strategy set out in protocol 1 • All prisoners are aware of their role (as counter or not)
-• 1 prisoner enters the room each day
-• The lightbulb’s initial state is either on or off
-• The initial state of the light bulb is known to the counter
-2
-These assumptions can be expressed as common knowledge. It is not necessary that the identity of the counter is common knowledge, simply that each prisoner knows their own role. It is also not necessary that one prisoner enters each day, the protocol also hold when some days no prisoner enters the room. This assumption is only important as we use it when making examples. The counter does need to know the initial state of the light bulb for this protocol to work. If the initial state is unknown to the counter the protocol fails. If the counter knows the initial state the protocol can work for either the initial state containing a lightbulb that is on or off.
-Maybe we need to delete the protocol part of this and just explain why prisoners can not deduce by themselves the problem without the protocol? I think that helps us see why we need a protocol and it can be explained with some logic.
-Kripke model showing the knowledge of the possible states protocol 1:
-In this Kripke model we show what states can be possible after the number of days increase. We only model here if it is already possible to have had everybody in the interrogation room. If we take 3 prisoners: Alex, Bennie and Charlie. Alex is assigned as the counter.In this example we assume that the initial state of the light bulb is off. We can take the example sequence B, A, B, C, A, C, A. Here is the progression of the Kripke model:     </p>
-	</div>
+
+In [1] they provide several protocols, and solutions to the one hundred prisoners and one light bulb riddle. During the book they use natural deduction to break down the problem, and first start with a prove for a small number of prisoners before adding more and more prisoners. Therefore, if the problem can be solved for n people, it can also be solved for n + 1. In this review of the previous riddle, and the newly created riddle we will also use this strategy of natural deduction. During this section we will use the [1] to give the explanation for the riddle with one light bulb, on which we will describe how the problem works with more light bulbs, and how this changes the protocols that come with it. Furthermore, we will investigate newly created protocols to try to solve the riddle.
+
+			<h3>One light bulb.  </h3>
+
+		First, we will explain the riddle that only contains one light bulb, then increase the number of light bulbs to two or more light bulbs if possible, and then see how the problem works if we increase the number of light bulbs higher than the number of prisoners.
+		<br>
+
+		We can see in [1] that the 100 prisoners and one light bulb riddle is solved by choosing one person named the counter, after which every person who enters the interrogation room can turn on the light bulb just once. If the light is already switched on, they do nothing. Only when the light is switched off, and the prisoner did not yet turn the light on, turn it on. If the only person who turns off the light is the counter, he can add one to the count every time he turns it off. Furthermore, [1] shows that the solution for the problem from two prisoners on wards stays the same. Therefore, we will use an arbitrary number of prisoners in our explanation/examples to solve the riddle that is lower than 100 but higher than two, so that explainability is guaranteed. The protocol for this solution is given in protocol 1.
+		<br>
+</p>
+
+		<p style="text-align: center;">
+		<b>Protocol 1 </b> <i> The prisoners appoint one amongst them as the counter. All non-counting prisoners follow this protocol: the first time they enter the room when the light is off, they turn it on; on all other occasions, they do nothing. The counter follows a different protocol: if the light is off when he enters the interrogation room, he does nothing; if the light is on when he enters the interrogation room, he turns it off; when he turns off the light for the <b>(number of prisoners - 1)th</b> time, he announces that everybody has been interrogated.</i>
+</p>
+<p>
+			Consider Kripke structure <em>M</em>=&#9001;S, &pi;, R<sub>a</sub>, R<sub>b</sub>, R<sub>c</sub>&#9002; with <em>S</em> = <em>&#123;(&#172;O,&#172;E),(O,&#172;E),(&#172;O,E)&#125;</em> and  &pi;, R<sub>a</sub>, R<sub>b</sub>, R<sub>c</sub> as indicated in Figure 7. The structure contains three agents, namely: Alex (A), Bennie (B) and Charlie (C). There are two propositions used in this model which are O = <i>light bulb is on</i> and E = <i>the counter knows everybody has been in the interrogation room</i> similar to before. The node containing a purple background is the starting node in which the light is off, and the counter does not know if everybody has been in the room.
+</p>
+
+								<figure style="text-align: center;">
+			<img src="images/fig7.png" alt="Trulli" style="max-width: 70%;  height: auto;">
+			<figcaption>Fig.7 - Kripke sequence model, one light bulb using protocol 1.</figcaption>
+			</figure>
+
+
+										<figure style="text-align: center;">
+			<img src="images/t1.png" alt="Trulli" style="max-width: 60%;  height: auto;">
+			<figcaption>Table1 - Example sequence for the one light bulb problem using protocol 1. The threshold number for the count is the number of agents minus one. Because then the counter knows everybody has been interrogated. If the count reaches 3 (two times the light bulb is switched off then the counter can announce everybody has been interrogated) .</figcaption>
+			</figure>
+
+
+<p>
+		<p>	<h3>Two or more light bulbs (<i>n</i> > 1 and <i>n</i> &#8804; <i>number of prisoners</i>).</h3></p>
+
+
+In this section, we will explain solving strategies if there are two or more light bulbs, but the number
+of light bulbs is lower than the number of prisoners. So, strictly n &#8804; prisoners.
+
+</p>
+
+
+		<p>
+		<h4>Protocol 1</h4>
+
+		Firstly, we can use the same strategy as displayed in the one light bulb problem, and having one person that is the counter. However, now a person entering the interrogation room can either switch on the first light bulb or can switch on the second light bulb if the first one is already on. If both light bulbs are switched on already and the prisoners did not yet turn it on he has to wait until the lights are turned off by the counter prisoner. For example, if we have a example including three agents Alex, Bennie and Charlie of which Alex is the counter.
+
+		</p>
+
+		<p>
+Consider Kripke structure <em>M</em>=&#9001;S, &pi;, R<sub>a</sub>, R<sub>b</sub>, R<sub>c</sub>&#9002;
+			with <em>S</em> = <em>&#123;(&#172;O<sub>1</sub>,&#172;O<sub>2</sub>,&#172;E),(O<sub>1</sub>,&#172;O<sub>2</sub>,&#172;E),(O<sub>1</sub>,O<sub>2</sub>,&#172;E),(&#172;O<sub>1</sub>,&#172;O<sub>2</sub>,E)&#125;</em> and
+			&pi;, R<sub>a</sub>, R<sub>b</sub>, R<sub>c</sub> as indicated in Figure 8. We can ob- serve that the structure is a slight variation of Figure 7. One addition assumption to protocol 1 has to be made for explainability which is:
+			<ul style="text-align: left;">
+			  <li>If <i>&#172;O<sub>1</sub>, &#172;O<sub>2</sub></i> (both light bulbs are off when the agents enters the room) the agent turns on light bulb <i>O<sub>2</sub></i>. </li>
+
+			</ul>
+		</p>
+
+		<p>
+
+We can now visualize the sequence Kripke model in Figure 8. In which we can observe that every relation has to be used for the model to get into the last state (goal state E). Therefore, we know that in every way possible before the counter can announce that ’everybody has been in the interrogation room’ everybody must have been in the interrogation room. We can see a example solving strategy in Figure 1. The solving strategy now takes as many days as before with one light bulb. However, in the Figure we can see that there is a faster way of solving the problem. Therefore, even though in this example it is not faster on average having two light bulbs will increase the speed of solving.
+		</p>
+<p>
+					<h4>Binary representation</h4>
+
+		Secondly, the most simple and probably the fastest way to solve this problem is to use the states of the light bulbs to displays numerical numbers via binary representation. With binary representation is meant that a certain number for instance 5 which is in binary representation 101 needs three light bulbs to be displayed. Therefore, this solving strategy only works if the number of prisoners can be binary represented by the number of light bulbs. So, if we have two light bulbs, for instance, we can only use binary representation as a solving strategy if the number of prisoners is lower than 4.
+
+</p>
+					<figure style="text-align: center;">
+			<img src="images/fig8.png" alt="Trulli" style="max-width: 70%;  height: auto;">
+			<figcaption>Figure 8 - Kripke sequence model two light bulbs protocol 1.</figcaption>
+			</figure>
+<p>
+We can depict the number three using the two light bulbs, but we can suggest that if a person enters the room that has not been interrogated before, and he sees the number three depicted by the two light bulbs he can say with confidence that the other people have been interrogated. Therefore, we can count to four with two light bulbs using the binary representation. In binary representation every light bulb that is added to the number multiplies the number that can be numerical represented by two.
+
+			<figure style="text-align: center;">
+			<img src="images/t2.png" alt="Trulli" style="max-width: 60%;  height: auto;">
+			<figcaption>Table 2 - Example sequence for the two light bulb problem using protocol 1. The threshold number for the count is the number of agents minus one. Because then the counter knows everybody has been interrogated. If the count reaches 3 (two times the light bulb is switched off then the counter can announce everybody has been interrogated)
+</figcaption>
+			</figure>
+
+</p>
+
+		<p>
+The number of prisoners counted using this strategy is the binary representation possible with n number of light bulbs plus one. For this protocol to work we need several assumptions about the knowledge the prisoners have:
+						<ul style="text-align: left;">
+			  <li>It is common knowledge what the order of the light bulbs is (we need to know which light bulb is which) </li>
+			  <li>It is common knowledge how binary representation works</li>
+
+			</ul>
+		</p>
+
+		<p>
+			In Table 3 we can see the answer for the an example sequence. First, Daniel puts on light bulb 2 to form the numerical representation 1. After which Alex turns on light bulb 1 and turns off light bulb 2 to create the numerical representation 2. Charlie then turns on light bulb 2 to create the numerical representation 3. Bennie enters the room for the first time and sees both lights turned on, and knows three people have been interrogated before. Therefore Bennie can announce everybody has been interrogated.
+		</p>
+
+					<figure style="text-align: center;">
+			<img src="images/t3.png" alt="Trulli" style="max-width: 50%;  height: auto;">
+			<figcaption>Table 3 - Example sequence for the light bulb problem using protocol 3.
+</figcaption>
+			</figure>
+<p style="text-align: center;">
+	<b>Protocol 2</b> <i>Prerequisite for this protocol: If the number of prisoners is lower or equal to the number that can be used to depict binary representation. Every prisoner that enters the room adds one to the binary representation using the light bulbs. When a prisoner enters the room that does not have entered the room before, and sees that the binary representation is the number of people minus one he can say that everybody has been interrogated.
+</i>
+
+</p>
+
+
+		<p>
+			<h4>Several counters method</h4>
+
+
+		Lastly, we could now try a strategy in which we create groups and appoint one person per group as counter. The strategy is related to the one counter solution. However, now, we have as many counters as that there are light bulbs, s.t. every counter hold the count for one light bulb. We also have to divide the prisoners into several groups depending on the number of light bulbs. The members of the groups can only turn on the light bulb that is assigned to there group. After, the counter has counted all the people in his group. He waits until he can turn on the light of the other groups. Therefore, if the counter of the other group has counted the number of his group plus the number of other counters, he knows that the other groups have finished counting as well, and he can therefore say that all the prisoners have been interrogated. The complete, and concise version of the protocol can be seen in protocol 3.
+		</p>
+
+		<p style="text-align: center;">
+			<b>Protocol 3</b> <i>The prisoners appoint two (or more depending on the number of light bulbs) amongst them as the counter. All non-counting prisoners follow this protocol: the first time they enter the room when the light of their group is off, they turn the light of their group on; on all other occasions, they do nothing. The counter follows a different protocol: if the light of his/her group is off when he enters the interrogation room, he does nothing; if the light of his/her group is on when he enters the interrogation room, he turns it off. If the counter of there group has reached the amount of people is his/her group he then waits until he can turn on the lights of the other groups such that he can signal that his group is done. When one of the counters reaches the amount of his group plus the two other counters, he announces that everybody has been interrogated.</i>
+
+		</p>
+
+
+		<p>
+However, while this protocol sounds solid, and does not deviate much from protocol 1, it is not. There are some cases of sequences in which the protocol does not hold, and a counter example can be found. To show why the model does not hold we created a complete Kripke model that contains all the possibilities for a example with four agents and two light bulbs. We can use Kripke semantics to explain protocol 3. The same assumptions as the Kripke model for protocol 1 hold here, however, two rules are added, and we change the strategy rule to protocol 3. For clarification all the rules are stated again here:
+
+									<ul style="text-align: left;">
+			<li>All prisoners wish to escape</li>
+		<li>All prisoners are aware of the strategy set out in protocol 3</li>
+		<li>All prisoners are aware of their role (as counter or not)</li>
+		<li>All prisoners are aware of their group</li>
+		<li>All prisoners are aware which light bulb they can and can not touch</li>
+		<li>1 prisoner enters the room each day</li>
+		<li>The light bulb’s initial state is off</li>
+
+			</ul>
+
+		</p>
+
+		<p>If we take 4 prisoners: Alex, Bennie, Charlie and Daniel. Alex (A) and Bennie (B) are assigned to group 1, in which Alex is the counter. Charlie (C) and Daniel (D) are assigned to group 2, in which Charlie is the counter. Group 1 has control over light bulb 1, and group 2 has control over light bulb 2. It is common knowledge that everybody knows their groups and the counters of each group. We will use the same propositions as before. However, now we will add numbers to the propositions which represent the groups. For clarification again we show all possible states. There are four propositions used in the model, and four negations of these propositions namely:
+											<ul style="text-align: left;">
+			<li><i>&#172;O<sub>1</sub>, &#172;O<sub>2</sub></i></li>
+		<li> <i>O<sub>1</sub></i> = light bulb 1 is on</li>
+		<li> <i>O<sub>2</sub></i> = light bulb 2 is on</li>
+		<li> <i>E<sub>1</sub></i> = everybody of group 1 has been in the interrogation room</li>
+		<li> <i>E<sub>2</sub></i> = everybody of group 2 has been in the interrogation room</li>
+		<li> <i>&#172;O<sub>1</sub></i> = light bulb 1 is off</li>
+		<li> <i>&#172;O<sub>2</sub></i> = light bulb 2 is off</li>
+		<li> <i>&#172;E<sub>1</sub></i> = not everybody of group 1 has been in the interrogation room</li>
+		<li> <i>&#172;E<sub>2</sub></i> = not everybody of group 2 has been in the interrogation room</li>
+
+			</ul>
+		</p>
+
+			</div>
 </body>
 </html>
