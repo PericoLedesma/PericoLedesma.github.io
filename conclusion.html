@@ -35,15 +35,20 @@
 
 	<div class="medio">
 		<p>
-A group of 100 prisoners, all together in the prison dining area, are told that they will be all put in isolation cells and then will be interrogated one by one in a room containing a light with an on/off switch. The prisoners may communicate with one another by toggling the light switch (and that is the only way in which they can communicate). The light is initially switched off. There is no fixed order of interrogation, or interval between interrogations, and the same prisoner may be interrogated again at any stage. When interrogated, a prisoner can either do nothing or toggle the light switch, or announce that all the prisoners have been interrogated. If that announcement is true, the prisoners will (all) be set free, but if it is false, they will be in jail forever. While still in the dining room, and
-1
-before the prisoners go to their isolation cells (forever), can the prisoners agree on a protocol that will set them free? [1].
-We will change the number of light bulbs into a n amount for our variation. Therefore, there will be a n amount of light bulbs available to switch on or off in our interrogation room. We will first explain the steps that [1] have taken to solve the problem for one light bulb after which we will increase the explanation for more light bulbs. We will need to build a Kripke model and examine the many states and actions to solve this problem. Another important assumption we adopt from [1] is that this question is not a trick question. Therefore, we only have logical solutions.
+			To conclude, we extended the 100 prisoners and 1 light bulb riddle into a version that included more than one light bulb, and showed several old and new solving strategies. We found that the old strategies that already worked on the one light bulb riddle could also be extended to the riddle that included more light bulbs. Furthermore, we made three new solving techniques which all have pros and cons. The binary representation and when the number of light bulbs is one less than the number or prisoners or more are good strategies given that all the assumptions both need do hold. In which the binary representation is a more effective strategy as you need fewer light bulbs to signal
+			the same thing as in protocol 4.
+					</p>
 
-       <h3>Literature review</h3>
-In [1] they provide several protocols, and solutions to the one hundred prisoners and one light bulb riddle. During the book they use natural deduction to break down the problem, and first start with a prove for a small number of prisoners before adding more and more prisoners. Therefore, if the problem can be solved for n people, it can also be solved for n + 1. In this review of the newly created riddle we will also use this strategy of natural deduction. During the method section we will use the [1] to give the explanation for the riddle with one light bulb, on which we will describe how the problem works with more light bulbs, and how this changes the protocols that come with it.
+										<figure style="text-align: center;">
+						<img src="images/t5.png" alt="Trulli" style="max-width: 50%;  height: auto;">
+						<figcaption>Table 1 - Example sequence for the two light bulb problem using protocol 4. If two people have entered the room before the third person, and they both turned on a light bulb the third person can announce everybody has been interrogated.
+			</figcaption>
+						</figure>
+			<p>
+				he new solving strategy that included creating several groups that have several counters looked like a simple, and easy extension of the one counter method. However, while it looks feasible on paper the protocol does not hold in certain sequences of prisoners going into the interrogation room. Therefore, this is not a protocol you should use to solve this riddle.
 
-        </p>
+			</p>
+
 	</div>
 </body>
 </html>
