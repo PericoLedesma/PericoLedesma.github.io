@@ -169,3 +169,8 @@ sub {
   vertical-align: sub;
   font-size: smaller;
 }
+
+h4 {
+text-align: center;
+
+}
